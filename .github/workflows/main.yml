@@ -1,1 +1,15 @@
+name: Exemplo de Workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do repositório
+      uses: actions/checkout@v3
+
+    - name: Imprimir mensagem
+      run: echo "Hello World!"
 
