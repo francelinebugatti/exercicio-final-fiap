@@ -3,13 +3,29 @@ name: Exemplo de Workflow
 on: [push]
 
 jobs:
-  build:
+  linux:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout do repositório
-      uses: actions/checkout@v3
+      - name: Imprimir mensagem
+        run: echo "Hello World!"
 
-    - name: Imprimir mensagem
-      run: echo "Hello World!"
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Imprimir mensagem
+        run: echo "Hello World!"
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: Imprimir mensagem
+        run: echo "Hello World!"
+
+  final:
+    needs: [linux, windows, macos]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir mensagem
+        run: echo "Finalizado!"
+
 
