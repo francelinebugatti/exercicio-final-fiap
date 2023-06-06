@@ -1,0 +1,20 @@
+name: Meus Dados
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  meus-dados:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Imprimir NOME
+        run: echo ${{ secrets.NOME }}
+
+      - name: Imprimir RA
+        run: echo ${{ secrets.RA }}
+
+      - name: Imprimir CURSO
+        run: echo ${{ secrets.CURSO }}
